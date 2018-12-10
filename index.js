@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import helmet from "helmet";
 const app = express();
 
 const PORT = 4000;
@@ -10,14 +11,14 @@ const handleHome = (req, res) => res.send('hello from test');
 
 const handleProfile = (req, res) => res.send("your proflie");
 
-const betweenHome = (req, res, next) => {
-  console.log("test");
-  next();
-};
+app.use(helmet());
+app.use(morgan("dev"));
 
-app.use(betweenHome); //global 실행 
+const middleware = (req, res, next) => {
+  res.send("hungr");
+}
 
-app.get("/", handleHome); // 사이에 함수를 넣으면 해당 부분의 url 만 실행된다.
+app.get("/", middleware, handleHome);
 
 app.get("/profile", handleProfile);
 
