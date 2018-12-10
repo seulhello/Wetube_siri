@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "siri_yi",
-  "license": "ISC",
+  //babel 역할  최신js를 읽지 못하는 브라우저를 위해 읽을수 있는 js 로 변경
   "dependencies": {
-    "express": "^4.16.4"
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel": "^6.23.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js --delay 2"
+  },
+  //nodemon 역할 : node 서버를 변경시에 자동으로 재시작 해줄 수 있게 해줌
+  "devDependencies": {
+    "nodemon": "^1.18.7"
   }
 }
