@@ -37,11 +37,12 @@ ex) 서버가 불러와 지기 이전에 Middle ware 를 실행하여 데이터�
     export 자체가 반환한다는 의미인가(?) -> 확인필요 -> 응 맞아   
     대신 default 없이 반환했을 경우 import가 달라짐  
 
-    router.js 내용  
-    export const userRouter = express.Router();  //나 이 userRouter 변수만 반환할꺼야!!   
+    -예시 
+      - router.js 내용  
+        export const userRouter = express.Router();  //나 이 userRouter 변수만 반환할꺼야!!   
 
-    app.js 내용 (불러오는 파일)  
-    import { userRouter } from "./router";  //응 그래 userRouter 만 받을게  
-    app.use("/user", userRouter); // 대신에 user에 접속하면 userRouter 안에 있는거 다 사용할거야-  
-    => localhost:4000/user 사용시 userRouter 안에 있는 기본 get! ("/") 사용된게 나타남 그 이후는 안에 있는 경로를 따름  
+      - app.js 내용 (불러오는 파일)  
+        import { userRouter } from "./router";  //응 그래 userRouter 만 받을게  
+        app.use("/user", userRouter); // 대신에 user에 접속하면 userRouter 안에 있는거 다 사용할거야-  
+        => localhost:4000/user 사용시 userRouter 안에 있는 기본 get! ("/") 사용된게 나타남 그 이후는 안에 있는 경로를 따름  
 
