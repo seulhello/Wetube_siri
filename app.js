@@ -3,13 +3,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import { userRouter } from "./router";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
+import globalRouter from "./routers/globalRouter";
 
 const app = express();
-
-const handleHome = (req, res) => res.send('hello from test');
-
-const handleProfile = (req, res) => res.send("your proflie");
 
 app.use(cookieParser());
 app.use(bodyParser.json()); //서버야 json을 이해하렴 
@@ -22,10 +20,8 @@ app.use(morgan("dev"));
 //   res.send("hungr");
 // }
 
-app.get("/", handleHome);
-
-app.get("/profile", handleProfile);
-
-app.use("/user", userRouter);
+app.use("/", globalRouter);
+app.use("/users", userRouter);
+app.use("/videos", videoRouter);
 
 export default app;
