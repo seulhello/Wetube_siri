@@ -46,3 +46,12 @@ ex) 서버가 불러와 지기 이전에 Middle ware 를 실행하여 데이터�
         app.use("/user", userRouter); // 대신에 user에 접속하면 userRouter 안에 있는거 다 사용할거야-  
         => localhost:4000/user 사용시 userRouter 안에 있는 기본 get! ("/") 사용된게 나타남 그 이후는 안에 있는 경로를 따름  
 
+
+# 오류 났던것 
+1. app.js 내에 있었던 app.use(routes.videos, videoRouter); 이부분을 생각하지않고   
+계속 localhost:4000/videos 가 안되는지 의문이였음     
+해결 => videoRouter 부분에 있는 !!사이에 내용을 수정했음    
+routes.video -> routes.home 경로가 그러면 원하는대로 됨   
+videoRouter.get(!routes.home!, (req, res) => res.send("Videos"));    
+
+
