@@ -1,1 +1,1 @@
-git 푸시 받음 (home)
+git 푸시 함 (company)
