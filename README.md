@@ -39,9 +39,15 @@ ex) 서버가 불러와 지기 이전에 Middle ware 를 실행하여 데이터�
 - dev로 하려면 npm install시 맨 마지막에 -D 추가   
 - ex)npm install nodemon -D
 
-# 패키지 역할
+# 패키지 및 그 이외 역할
 - babel 역할 : 최신js를 읽지 못하는 브라우저를 위해 읽을수 있는 js 로 변경  
 - nodemon 역할 : node 서버를 변경시에 자동으로 재시작 해줄 수 있게 해줌  
+- (중요) bodyParser 역할 : body-parser 는 node.js 모듈이다  
+  클라이언트 POST request data (함수 사용시 변수 req)의 body (ex. 회원가입시 사용자가 입력하는 정보)로부터 parameter(매개변수 ex. function(int a, int b){... } 부분 중 int a,b를 이야기한다.)
+  - 만약 bodyParser가 없으면?   
+    전달 되는 내용이 undefinded 로 해서 전달된다 (error를 볼 수있다.. ㅋ)  
+
+
 
 
 # 문법 
@@ -59,6 +65,11 @@ ex) 서버가 불러와 지기 이전에 Middle ware 를 실행하여 데이터�
         import { userRouter } from "./router";  //응 그래 userRouter 만 받을게  
         app.use("/user", userRouter); // 대신에 user에 접속하면 userRouter 안에 있는거 다 사용할거야-  
         => localhost:4000/user 사용시 userRouter 안에 있는 기본 get! ("/") 사용된게 나타남 그 이후는 안에 있는 경로를 따름  
+
+  - status code란?  
+    인터넷이 어떻게 상호작용을 하고 있는지 표시하는 것 
+    ex) 200 이면 ok, 204 이면 내용없음, 403이면 금지, 400은 잘못된 요청 등등    
+    https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html 설명되어있음  
 
 
 # 오류 났던것 
