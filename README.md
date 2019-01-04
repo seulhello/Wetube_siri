@@ -69,3 +69,9 @@ routes.video -> routes.home 경로가 그러면 원하는대로 됨
 videoRouter.get(!routes.home!, (req, res) => res.send("Videos"));    
 
 
+# git 오류
+git clone 받고 babael 오류시에 npm 추가 install   
+- npm install --save-dev @babel/core @babel/node     
+
+추가로 필요함
+
