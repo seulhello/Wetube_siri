@@ -86,3 +86,13 @@ git clone 받고 babael 오류시에 npm 추가 install
 
 추가로 필요함
 
+#MONGO DB 관련 내용
+- mongoDB는 데이터베이스 이다 (NoSQL DB)  
+  - 특징 :  규칙이 적고 유연하다.(케이스 바이 케이스), 생성이 매우 빠르고 엄격하지 않음   
+- mongoose 역할 : mongo DB 와 nodeJS 를 연결시켜주는 역할(npm install mongoose)  
+- dotenv 설치 : npm install dotenv (역할은 추후 공지)
+- dotenv 역할 (추가) : mongo DB 를 연결했을 경우 내가 연결하는 URL을 다른사람에게 보이지 않기 위해서 사용함  
+  .env 파일을 만들어서 해당파일 내에 사용할 url을 변수로 만들어 실제 보이는 db에는 변수를 저장하여 보이지 않도록 한다.  
+  꼭!!!!!!!! gitignore 부분에 .env 부분이 들어가 있는지 확인하자!   
+
+
