@@ -1,3 +1,4 @@
+import multer from "multer";
 import routes from "./routes";
 
 export const localsMiddleware = (req, res, next) => {
@@ -6,6 +7,6 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.user = {
     isAuthenticated: true,
     id: 1
-  }
+  };
   next();
 };

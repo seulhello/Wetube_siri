@@ -1,7 +1,15 @@
 import routes from "../routes";
+import Video from "../models/Video";
 
-export const home = (req, res) => {
-  res.render("home", { pageTitle: "Home", videos });
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    console.log(videos);
+    res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", videos: [] });
+  }
 };
 export const search = (req, res) => {
   const {
@@ -20,6 +28,7 @@ export const postUpload = (req, res) => {
   const {
     body: { file, title, description }
   } = req;
+  console.log(file, title, description);
   // To Do: 비디오 업로드 및 세이브
   res.redirect(routes.videoDetail(324393));
 };
