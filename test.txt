@@ -1,1 +1,1 @@
-git 푸시 함 (company)
+merge 부분 test 
