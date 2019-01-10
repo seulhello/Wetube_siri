@@ -24,13 +24,18 @@ export const search = (req, res) => {
 export const getUpload = (req, res) => {
   res.render("upload", { pageTitle: "Upload" });
 };
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   const {
-    body: { file, title, description }
+    body: { title, description },
+    file: { path }
   } = req;
-  console.log(file, title, description);
+  const newVideo = await Video.create({
+    fileUrl: path,
+    title,
+    description
+  });
+  res.redirect(routes.videoDetail(newVideo.id));
   // To Do: 비디오 업로드 및 세이브
-  res.redirect(routes.videoDetail(324393));
 };
 export const videoDetail = (req, res) =>
   res.render("videoDetail", { pageTitle: "Video Detail" });
